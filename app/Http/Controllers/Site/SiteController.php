@@ -49,7 +49,6 @@ class SiteController extends Controller
             $data['product_featured'] = Products::orderBy('created_at', 'DESC')->where('featured', '1')->get();
             $data['trademaks'] = Trademaks::all();
             $data['setting'] = Setting::where('state', '1')->first();
-           // dd($data['setting']);
             $data['users_review'] = Users::where('state_review', '1')->get();
             return view('site.index.index', $data);
         } catch (ModelNotFoundException $exception) {
