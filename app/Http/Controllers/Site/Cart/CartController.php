@@ -79,29 +79,29 @@ class CartController extends Controller
         }
 
 
-        $ord=Customers::find($customer->id)->OrderDetail;
-        Mail::send('site.index.cart.sendmailcart', $data=[
-            'name'=> $request->name,
-            'ord'=>$ord,
-            'phone'=>$request->phone,
-            'email'=>$request->email,
-            'address'=>$request->address,
-            'note'=>$request->note,
-            'total'=>Cart::total(0, '', ''),
-            'order_code'=>$order->id
-        ], function ($message) use ($request) {
-            $message->from('ahihi@gmail.com', 'HuyVan');
-            // $message->sender('john@johndoe.com', 'John Doe');
-            $message->to($request->email, $request->name);
-            // $message->cc('john@johndoe.com', 'John Doe');
-            // $message->bcc('john@johndoe.com', 'John Doe');
-            // $message->replyTo('john@johndoe.com', 'John Doe');
-            $message->subject('Xác nhận đơn hàng thành công');
-            // $message->priority(3);
-            // $message->attach('pathToFile');
-        });
+        // $ord=Customers::find($customer->id)->OrderDetail;
+        // Mail::send('site.index.cart.sendmailcart', $data=[
+        //     'name'=> $request->name,
+        //     'ord'=>$ord,
+        //     'phone'=>$request->phone,
+        //     'email'=>$request->email,
+        //     'address'=>$request->address,
+        //     'note'=>$request->note,
+        //     'total'=>Cart::total(0, '', ''),
+        //     'order_code'=>$order->id
+        // ], function ($message) use ($request) {
+        //     $message->from('ahihi@gmail.com', 'HuyVan');
+        //     // $message->sender('john@johndoe.com', 'John Doe');
+        //     $message->to($request->email, $request->name);
+        //     // $message->cc('john@johndoe.com', 'John Doe');
+        //     // $message->bcc('john@johndoe.com', 'John Doe');
+        //     // $message->replyTo('john@johndoe.com', 'John Doe');
+        //     $message->subject('Xác nhận đơn hàng thành công');
+        //     // $message->priority(3);
+        //     // $message->attach('pathToFile');
+        // });
         Cart::destroy();
-        return view('site.index.cart.checkout_success',$data);
+        return view('site.index.cart.checkout_success');
     }
     public function RemoveCart($id)
     {
