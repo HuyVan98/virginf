@@ -232,6 +232,12 @@ Route::group(['prefix' => '', 'namespace' => 'Site'], function () {
     Route::get('lien-he.html', 'SiteController@Contact')->name('contact');
     Route::get('trang-khong-ton-tai.html', 'SiteController@Error404')->name('404');
     Route::get('loi-500', 'SiteController@error500')->name('500');
+
+    Route::group(['prefix' => '', 'namespace' => 'Favorite'], function () {
+        Route::get('yeu-thich.html', 'FavoriteController@List')->name('favorite');
+        Route::get('add-favorite/{id}', 'FavoriteController@Store')->name('favorite.add');
+        Route::get('remove-favorite/{id}/{userID}', 'FavoriteController@Remove')->name('avorite.remove');
+    });
     // blog
     Route::group(['prefix' => ''], function () {
         Route::get('danh-sach-bai-viet.html', 'SiteController@BlogList')->name('blogList');

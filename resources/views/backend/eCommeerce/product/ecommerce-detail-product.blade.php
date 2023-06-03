@@ -52,11 +52,11 @@
                             </div>
                             <dl class="row">
                                 <p>Thuộc tính riêng:</p>
-                                @foreach ($category->Properties as $propertie_Item)
+                                @foreach ($category->properties as $propertie_Item)
                                     <span class="col-sm-3">{{ $propertie_Item->column }}: </span>
-                                    @foreach ($propertie_Item->values as $value_column_item)
-                                        <span class="col-sm-9">{{ $value_column_item->value }}</span>
-                                @endforeach
+                                        @foreach ($propertie_Item->values as $value_column_item)
+                                            <span class="col-sm-9">{{ $value_column_item->value }}</span>
+                                        @endforeach
                                 @endforeach
                             </dl>
                             <hr>

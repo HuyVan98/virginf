@@ -128,6 +128,7 @@
                                         giá</button>
                                     {{-- <input type="submit" name="register" value="Xem lại giá" class="button button-add-cart"> --}}
                                 @endif
+                                <a href="{{route('favorite.add',['id'=>$product->id])}}" class="button button-add-cart">Thêm vào yêu thích</a>
                             </div>
                         </div>
                     </form>
@@ -267,8 +268,7 @@
                         <div class="product-inner">
                             <div class="product-thumb">
                                 <a href="{{ route('productDetail', ['slug' => $item->slug]) }}"><img
-                                        src="../product/{{ $item->image }}" alt="{{ $item->name }}" width="250"
-                                        height="380"></a>
+                                        src="../product/{{ $item->image }}" alt="{{ $item->name }}"></a>
                             </div>
                             <div class="product-info">
                                 <h3 class="product-name"><a

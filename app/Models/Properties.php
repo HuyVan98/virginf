@@ -9,6 +9,6 @@ class Properties extends Model
     protected $table='properties';
     public function values()
     {
-        return $this->hasMany(valuecolumn::class, 'properties_id', 'id');
+        return $this->hasMany(ValueColumn::class, 'properties_id', 'id');
     }
 }
